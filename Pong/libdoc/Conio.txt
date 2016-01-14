@@ -1,0 +1,70 @@
+;****************************************************************************************************
+; Conio 1.1
+; Autor: Gorka Suarez Garcia
+; Descripcion: Liberia que contiene rutinas para el manejo de la consola
+; Versiones:
+;    1.0 (18-01-2004) -> 27-01-2004
+;    1.1 (28-01-2004) -> 28-01-2004
+;****************************************************************************************************
+include conio.inc		-> Con esto hacemos referencia a la libreria
+DefColores			-> Con esto incluimos las constantes de color
+		;colores oscuros
+	CNegro		db 00h
+	CAzul		db 01h
+	CVerde		db 02h
+	CCyan		db 03h
+	CRojo		db 04h
+	CMagenta	db 05h
+	CMarron		db 06h
+	CGrisClaro	db 07h
+		;colores brillantes
+	CGris		db 08h
+	CAzulClaro	db 09h
+	CVerdeClaro	db 0Ah
+	CCyanClaro	db 0Bh
+	CRojoClaro	db 0Ch
+	CMagentaClaro	db 0Dh
+	CAmarillo	db 0Eh
+	CBlanco		db 0Fh
+ConioLib			-> Esta instruccion es necesaria para incluir las rutinas en el codigo
+
+ftextmodec80			-> Pone la pantalla en modo 80x25 a color
+ftextmodec40			-> Pone la pantalla en modo 40x25 a color
+fclrscr				-> Borra la pantalla
+fclrscr2 color			-> Borra la pantalla con un color
+fclrscrc40			-> Borra la pantalla en modo 40x25
+fclrscrc402 color		-> Borra la pantalla con un color en modo 40x25
+fclreol				-> Borra la linea donde este el cursor
+fclreolc40			-> Borra la linea donde este el cursor en modo 40x25
+fgotoxy x, y			-> Mueve el cursor de posicion
+fwherexy			-> Devuelve donde esta el cursor (DL=X, DH=Y o AH=X, AL=Y)
+fgetch				-> Captura una pulsacion del teclado (AH = Cod. busqueda, AL = Cod. ASCII)
+fgetche				-> Captura una pulsacion del teclado con eco en la pantalla
+fkbhit				-> Jz= No se ha pulsado ninguna tecla, Jnz= Se ha pulsado una tecla
+fkbflush			-> Limpia el buffer del teclado
+fclock				-> Da las pulsaciones del sistema (CX:DS/18.2 = ms)
+fdelay ms			-> Deja el sistema suspenso x ms
+frandom num			-> Da un numero aleatorio en AX, entre 0 y Num-1
+fputch car			-> Pone un caracter por pantalla
+fputch2 car, color		-> Pone un caracter por pantalla con color
+ftextbgcolor atributo, color	-> Mete en atributo el color de fondo indicado
+ftextcolor atributo, color	-> Mete en atributo el color de texto indicado
+fsetnocursor			-> Pone oculto el cursor del teclado
+fsetsolidcursor			-> Pone grande o solido el cursor del teclado
+fsetnormalcursor		-> Pone normal el cursor del teclado
+fcgets str			-> Lee una cadena de teclado (Da una cadena Stringz)
+	CadBuf	db 0 		;Tmax
+		db 0 		;Tact
+	Cadena	db 0 dup(0)	;Cadena
+fcstringz str, pos		-> Pone un 0 en una cadena
+fcputs cad			-> Pone una cadenaz por pantalla
+fcputs2 cad, color		-> Pone una cadenaz por pantalla con color
+fstrsubcpy d, di, o, oi, tam	-> Copia en d, desde di hasta di+tam, lo que hay en o, desde oi hasta oi+tam
+fexit code			-> Sale del programa con un codigo
+fendprog			-> Termina la ejecucion del programa
+
+fPutChar    x, y, c		-> Pone un caracter en x, y. Para el modo 80x25
+fPutCharC40 x, y, c		-> Pone un caracter en x, y. Para el modo 40x25
+fPutAttr    x, y, a		-> Pone un atributo en x, y. Para el modo 80x25
+fPutAttrC40 x, y, a		-> Pone un atributo en x, y. Para el modo 40x25
+;****************************************************************************************************

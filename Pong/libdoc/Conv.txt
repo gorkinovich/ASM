@@ -1,0 +1,15 @@
+;****************************************************************************************************
+; Conv 1.0
+; Autor: Gorka Suarez Garcia
+; Descripcion: Liberia que contiene rutinas para convertir cadenas a numeros y al reves
+; Versiones:
+;    1.0 (26-01-2004) -> 26-01-2004
+;****************************************************************************************************
+include conv.inc	-> Con esto hacemos referencia a la libreria
+ConvLib			-> Esta instruccion es necesaria para incluir las rutinas en el codigo
+fCCadBin Cad, Num32	-> Mete en Cad, la representacion binaria de Num32
+fCCadNum Cad, Num32	-> Mete en Cad, la representacion decimal de Num32
+fCCadHex Cad, Num32	-> Mete en Cad, la representacion hexadecimal de Num32
+fCBinCad Cad		-> Devuelve en DX:AX, el numero binario contenido en Cad
+fCNumCad Cad		-> Devuelve en DX:AX, el numero decimal contenido en Cad
+fCHexCad Cad		-> Devuelve en DX:AX, el numero hexadecimal contenido en Cad
