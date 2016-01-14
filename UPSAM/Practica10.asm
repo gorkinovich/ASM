@@ -1,0 +1,10 @@
+;LISTADO CON ERRORES
+	ORG	200H
+	MOV	A, 8
+	ADD	A, 6
+	MOV	X, 1000H
+Bucle:	MOV 	(X+0), A
+	INC	X
+	DEC	A
+	JNZ	Bucle
+	HLT
